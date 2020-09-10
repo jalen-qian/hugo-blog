@@ -1,14 +1,17 @@
 ---
-title: "[我的博客] 使用Hugo搭建个人博客网站"
+title: "[Hugo] 使用Hugo+nginx搭建个人博客网站"
 date: 2020-09-10T08:37:56+08:00
 lastmod: 2020-09-10T01:37:56+08:00
 draft: false
 tags: ["Hugo","博客"]
-categories: ["分类1"]
+categories: ["Hugo"]
 author: "jalen"
 ---
 
-## 平台：Centos 64bit
+## 使用Hugo+nginx搭建个人博客平台
+
+> 服务器平台：Centos 64bit
+
 ### 一.安装git 
 
 如果是一个全新的centos操作系统，需要先下载git

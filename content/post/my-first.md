@@ -2,7 +2,7 @@
 title: "[我的博客] 我的第一篇博客"
 date: 2020-09-10T08:37:56+08:00
 lastmod: 2020-09-10T01:37:56+08:00
-draft: false
+draft: true
 tags: ["标签1","标签2"]
 categories: ["分类1"]
 author: "我是作者"

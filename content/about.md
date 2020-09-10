@@ -1,21 +1,26 @@
 ---
-title: "About"
-date: 2017-08-20T21:38:52+08:00
-lastmod: 2017-08-28T21:41:52+08:00
+title: "关于"
+date: 2020-09-10
+lastmod: 2020-09-10
 menu: "main"
 weight: 50
 
 ---
 
-Hugo is a static site engine written in Go.
+#### 我是谁
 
+- 钱文军（jalen）全栈开发，专注PHP\Go\前端，职业是GO后端开发工程师
+- 喜欢代码、游泳、爬山
+- 联系我请邮件jalen_qian@163.com
 
-It makes use of a variety of open source projects including:
+#### 我的成分
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+- `[ #################--- ] 85%` Golang
+- `[ #################--- ] 85%` PHP
+- `[ ################---- ] 80%` JavaScript
+- `[ ##########---------- ] 50%` Java
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+#### follow me
+
+- 我的[github](https://github.com/jalen-qian)
 
