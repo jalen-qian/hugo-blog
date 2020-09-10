@@ -21,7 +21,7 @@ googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 [author]                  # essential                     # 必需
-  name = "jalen"
+  name = "Jalen Qian"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
@@ -59,7 +59,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   gitRepo = ""
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "钱文军的博客"        # default: the title value    # 默认值: 上面设置的title值
+  logoTitle = "Jalen's Blog"        # default: the title value    # 默认值: 上面设置的title值
   keywords = ["Hugo", "theme","even"]
   description = "专注于"
 
@@ -179,14 +179,14 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     wechat = "http://cdn1.jalen-qian.com/Hugo/pay-wx-code.png" # 微信二维码
     alipay = "http://cdn1.jalen-qian.com/Hugo/pay-alipay-code.jpg" # 支付宝二维码
 
-  #[params.social]                                         # 社交链接
-    #a-email = "mailto:jalen_qian@163.com"
+  [params.social]                                         # 社交链接
+    a-email = "mailto:jalen_qian@163.com"
     #b-stack-overflow = "http://localhost:1313"
     #c-twitter = "http://localhost:1313"
     #d-facebook = "http://localhost:1313"
     #e-linkedin = "http://localhost:1313"
     #f-google = "http://localhost:1313"
-    #g-github = "http://localhost:1313"
+    g-github = "https://github.com/jalen-qian"
     #h-weibo = "http://localhost:1313"
     #i-zhihu = "http://localhost:1313"
     #j-douban = "http://localhost:1313"
