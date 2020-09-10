@@ -347,8 +347,8 @@ vim nginx.conf
 ```
 http {
     server {
-        listen       8001; ## 改动点1：输入想要监听的端口号
-        server_name  47.107.340.175; ##改动点2：填写外网访问博客网站的域名或者外网IP（无域名时）
+        listen       80; ## 改动点1：输入想要监听的端口号
+        server_name  www.jalen-qian.com; ##改动点2：填写外网访问博客网站的域名或者外网IP（无域名时）
       
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
@@ -370,11 +370,11 @@ http {
 ### 五.通过nginx启动Hugo
 进入博客项目根目录，输入命令
 ```
-hugo --theme=even --baseUrl="http://47.107.240.175:8001"
+hugo --theme=even --baseUrl="http:www.jalen-qian.com"
 ## --theme后面跟的是主题名称，你下载了什么主题，就写对应的名字
 ## --baseUrl后面是外网通过nginx访问Hugo项目的路径，注意要与上面nginx.conf中的一致
 ```
 ### 六.更新博客
 博客更新很简单，只需要在content/post目录更新.md文件，然后运行
-`hugo --theme=even --baseUrl="http://47.107.240.175:8001"`重新发布即可
+`hugo --theme=even --baseUrl="http:www.jalen-qian.com"`重新发布即可
 
