@@ -147,10 +147,11 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     clientSecret = ""       # Your client secret
 
   # Valine.
+  # 需要到 https://leancloud.cn 这个网站创建APP
   # You can get your appid and appkey from https://leancloud.cn
   # more info please open https://valine.js.org
   [params.valine] ##评论功能
-    enable = true ##是否启用评论功能
+    enable = false ##是否启用评论功能 暂时关闭，因为域名没有备案成功，安全域名直接输入ip被白名单拦截了
     appId = '1LvTaSPR4ApiRcdwWjE4GMIg-gzGzoHsz'
     appKey = 'YQv6Cin02FtGPOglvzDgyYC6'
     notify = false  # 用于控制是否开启邮件通知功能 mail notifier , https://github.com/xCss/Valine/wiki
