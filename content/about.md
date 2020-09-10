@@ -10,8 +10,12 @@ weight: 50
 #### 我是谁
 
 - 钱文军（jalen）全栈开发，专注PHP\Go\前端，职业是GO后端开发工程师
+
 - 喜欢代码、游泳、爬山
-- 联系我请邮件jalen_qian@163.com
+
+- 联系我请邮件[jalen_qian@163.com](mailto:jalen_qian@163.com)
+
+  
 
 #### 我的成分
 
@@ -23,4 +27,5 @@ weight: 50
 #### follow me
 
 - 我的[github](https://github.com/jalen-qian)
+- 我的[博客](http://www.jalen-qian.com)
 

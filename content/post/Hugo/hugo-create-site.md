@@ -162,7 +162,7 @@ Hugo 有主题市场 https://themes.gohugo.io/ 可以进入挑选。
 
 例如这个主题，网站上的示例图如下：
 ![image](http://cdn1.jalen-qian.com/Hugo/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200909184526.png)
-[https://github.com/olOwOlo/hugo-theme-even](https://note.youdao.com/)
+[https://github.com/olOwOlo/hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
 
 要使用这个主题，直接通过git clone到blog目录
 ```
