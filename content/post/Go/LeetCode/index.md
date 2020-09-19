@@ -326,7 +326,7 @@ func numWays(n int) int {
 
 这种方式比较简单，但是存在一个问题，当n越大时，计算的次数是呈指数往上升的，**而且冗余计算很严重**，时间复杂度为$O(2^n)$
 
-### 解法2：线性计算
+### 解法2：动态规划
 
 由于$f(n)$和$f(n-1)$是有关联的，我们可以从$f(2)$开始循环计算到$f(n)$，代码如下：
 
@@ -352,5 +352,132 @@ func numWays(n int) int {
 ```
 
 这种方法的时间复杂度是$O(n)$，空间复杂度是$O(1)$
+
+## 5.解数独问题
+
+[LeetCode链接](https://leetcode-cn.com/problems/sudoku-solver/)
+
+### 问题描述
+
+>  编写一个程序，通过填充空格来解决数独问题。
+>
+>  一个数独的解法需遵循如下规则：
+>
+>  数字 1-9 在每一行只能出现一次。
+>
+>  数字 1-9 在每一列只能出现一次。
+>
+>  数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
+>
+>  空白格用 '.' 表示。
+
+**示例**
+
+![](http://cdn1.jalen-qian.com/Hugo/250px-Sudoku-by-L2G-20050714.svg.png)答案为：
+![](http://cdn1.jalen-qian.com/Hugo/250px-Sudoku-by-L2G-20050714_solution.svg.png)
+
+> 提示：
+> 
+> 上图中答案由红色数字标出
+> 
+> 给定的数独序列只包含数字 1-9 和字符 '.' 。
+>
+> 你可以假设给定的数独只有唯一解。
+>
+> 给定数独永远是 9x9 形式的。
+
+### 解题思路
+
+由于每个空格只能填入`1~9`中的任意一个数字，且每个空格都要满足上述的3个规则。那么可以考虑 **递归 + 回溯法** 
+
+因为每个空格的填入方法是相同的，可以递归，而当出现某个空格无数字可以填入时，说明前面的填错了，需要回溯到前面一步。
+
+具体思路如下：
+
+1. 我们采用行优先的方式，用`var spaces [][2]int`类型来存储所有需要填入的空格位置，比如如果`spaces[0] = [0,3]`表示第1个空格为第1行第4列
+
+2. 用`var lines [9][9]bool`变量来存储某行是否已经有某个数字了（因为有了就不能填，所以只需要记录是否有，就能判断某个数字是否可以填），比如`lines[2][3] = true`表示第3行有数字**4**（注意要+1，因为数组下标从0开始，而填入的数字从1开始）
+
+3. 同样的，用`var columns[9][9]bool`变量来存储某一列是否有某个数字了
+
+4. 用`var blocks[3][3][9]bool`来表示某个**3x3宫格**是否有某个数字，例如`blocks[1][0][5] = true`表示**第2排第1个3x3宫格**里面有数字6，注意，这里的1行相当于9宫格3行，所以**3x3宫格下标 = 9宫格下标 / 3**
+
+5. 递归：用递归的方式，将数字`1~9`填入spaces变量存储的某个空格中，如果能够填入，则继续填下一个空格
+
+6. 如何回溯：假如`spaces[idx]`这个空格填入数字`i`成功，那么继续循环将1-9填入spaces[idx+1]这个空格，如果发现`spaces[idx+1]`这个空格 1-9都无法填入，则回溯到上一步，继续将`i+1`填入`spaces[idx]`,以此类推
+
+7. 直到所有的空格都填满，程序结束
+
+**代码如下**
+
+```golang
+func solveSudoku(board [][]byte) {
+	var spaces [][2]int
+	var lines, columns [9][9]bool
+	var blocks [3][3][9]bool
+	for i, rows := range board {
+		for j, num := range rows {
+			//num:第 i 行 j列的数字
+			//如果是空白，记录下来
+			if num == '.' {
+				spaces = append(spaces, [2]int{i, j})
+			} else {
+				//由于数组下标是从0开始的，故而字符num对应在lines和columns中的是num-'1'
+				col := num - '1'
+				//不是空白，记录行、列、块
+				lines[i][col] = true         //第i行有num这个数字
+				columns[j][col] = true       //第j列有num这个数字
+				blocks[i/3][j/3][col] = true //记录块，由于每3行为块的1行，故除以3
+			}
+		}
+	}
+	//定义函数闭包，循环尝试将数字1-9填入spaces[idx]中
+	//判断数字n是否都不在行、列、块数组中有值
+	//    IF true 则将n填入该空格，并更新行、列、块的值，并递归调用spaces[idx + 1]
+	//          判断递归调用是否返回true
+	//              IF true 说明成功，返回true
+	//			IF false 说明idx+1没有数字可以填，回溯idx,尝试下一个数字
+	//    IF false 则进入下一次循环
+	//如果数字1-9都尝试过了，都无法写入，则返回false
+	var tryFill func(idx int) bool
+	tryFill = func(idx int) bool {
+		//执行到最后一个的下一个，直接返回true
+		if idx == len(spaces) {
+			return true
+		}
+		//遍历，从'1'到'9'
+		var n byte
+		for n = '1'; n <= '9'; n++ {
+			currLine := spaces[idx][0]   //当前空格行号
+			currColumn := spaces[idx][1] //当前空格列号
+			//如果lines、columns、blocks里面都没有数字 n 则将n填入到数独数组中
+			//lines中数字'1'对应的下标是0,也就是'1'-'1',依此类推，n对应 n - '1'
+			if !lines[currLine][n-'1'] && !columns[currColumn][n-'1'] && !blocks[currLine/3][currColumn/3][n-'1'] {
+				lines[currLine][n-'1'] = true
+				columns[currColumn][n-'1'] = true
+				blocks[currLine/3][currColumn/3][n-'1'] = true
+				board[currLine][currColumn] = n //填入
+				//当前填入之后，尝试填入下一个，如果下一个也成功，返回true
+				if tryFill(idx + 1) {
+					return true
+				}
+				//走到这里，说明下一步填入失败，那么将当前填入的信息删掉
+				//循环会继续填入当前继续尝试当前idx的下一个数字（回溯了）
+				lines[currLine][n-'1'] = false
+				columns[currColumn][n-'1'] = false
+				blocks[currLine/3][currColumn/3][n-'1'] = false
+			}
+		}
+		//如果所有 '1' - '9'个数字都尝试过了，都填入不了，则返回false
+		return false
+	}
+	//从space(0)开始填充
+	tryFill(0)
+}
+```
+
+
+
+
 
 ...持续更新中
