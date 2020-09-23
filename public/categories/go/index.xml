@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Jalen&#39;s Blog</title>
+    <link>http://localhost:1313/categories/go/</link>
+    <description>Recent content in Go on Jalen&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用Go语言刷LeetCode</title>
+      <link>http://localhost:1313/post/go/leetcode/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go/leetcode/</guid>
+      <description>这篇文章记录了本人通过Go语言来刷LeetCode，个人能力有限，解法不能保证是最优解，希望能抛转引玉 数据结构与算法题 1.两数之和 LeetC</description>
+    </item>
+    
+    <item>
+      <title>Go语言基础之运算符</title>
+      <link>http://localhost:1313/post/go/operators/</link>
+      <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/operators/</guid>
+      <description>运算符用于在程序运行时执行数学或逻辑运算。 运算符 Go 语言内置的运算符有： 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 算数运算符 算术运算符 运</description>
+    </item>
+    
+    <item>
+      <title>Go语言的数据类型</title>
+      <link>http://localhost:1313/post/go/datatype/</link>
+      <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/datatype/</guid>
+      <description>参考博客：https://www.liwenzhou.com/posts/Go/02_datatype/ Go语言包含丰富的数据类型，除了基本</description>
+    </item>
+    
+  </channel>
+</rss>

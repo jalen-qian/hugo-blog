@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yum on Jalen&#39;s Blog</title>
+    <link>http://localhost:1313/tags/yum/</link>
+    <description>Recent content in yum on Jalen&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【docker】Centos8.0安装docker报错：Problem package docker-ce-3...</title>
+      <link>http://localhost:1313/post/docker/install-docker-error/</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker/install-docker-error/</guid>
+      <description>事情经过 在Centos8.0下用yum安装Docker，执行命令后报错，内容大概是需要containerd.io的版本 &amp;gt;= 1.2.2-3 执行的命令如下: 1</description>
+    </item>
+    
+    <item>
+      <title>【docker】在Centos8.0下用yum安装Docker报找不到源解决办法</title>
+      <link>http://localhost:1313/post/docker/yum_install_docker_repo/</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker/yum_install_docker_repo/</guid>
+      <description>在阿里云服务器（Centos8系统）安装doker时，报找不到源，如下图： 解决 方案：使用 Docker 仓库进行安装 设置仓库 安装需要的软件包，这里安装了y</description>
+    </item>
+    
+  </channel>
+</rss>

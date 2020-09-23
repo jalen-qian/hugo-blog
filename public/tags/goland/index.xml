@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoLand on Jalen&#39;s Blog</title>
+    <link>http://localhost:1313/tags/goland/</link>
+    <description>Recent content in GoLand on Jalen&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/goland/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GoLand Debug出现Version Of Delve is too old for...</title>
+      <link>http://localhost:1313/post/goland/version-of-delve-too-old/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/goland/version-of-delve-too-old/</guid>
+      <description>问题描述 前几天升级了Go版本到go1.14,写程序的时候有段代码需要debug调试，GoLand出现如下的错误： Version of Delve is too old for this version of Go(maximum supported version 1.12,</description>
+    </item>
+    
+  </channel>
+</rss>

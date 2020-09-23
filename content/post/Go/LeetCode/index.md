@@ -1,10 +1,11 @@
 ---
+weight: 3
 title: "用Go语言刷LeetCode"
 date: 2020-09-15
 lastmod: 2020-09-19
 draft: false
-tags: ["Go","LeetCode"]
-categories: ["Go"]
+tags: ["Golang","LeetCode"]
+categories: ["Golang"]
 author: "Jalen"
 
 
@@ -37,15 +38,15 @@ author: "Jalen"
 
 ```go
 func twoSum(nums []int, target int) []int {
-	var result = make([]int, 2, 2)
-	for i, num := range nums {
-		for j, num1 := range nums {
-			if target-num == num1 {
-				return []int{j, i}
-			}
-		}
-	}
-	return result
+    var result = make([]int, 2, 2)
+    for i, num := range nums {
+        for j, num1 := range nums {
+            if target-num == num1 {
+                return []int{j, i}
+            }
+        }
+    }
+    return result
 }
 ```
 
@@ -93,18 +94,18 @@ func twoSum(nums []int, target int) []int {
 */
 func reverse(x int) int {
     res := 0
-	var maxValue = 1<<31 - 1
-	var minValue = - 1 << 31
-	var last = 0 //last记录上次计算的结果，第一次记录的结果为0
-	for ; x != 0; x /= 10 { //每循环一次，x的个位数被取出
-		res = last*10 + x%10
-		//判断是否溢出
-		if res > maxValue || res < minValue {
-			return 0
-		}
-		last = res
-	}
-	return res
+    var maxValue = 1<<31 - 1
+    var minValue = - 1 << 31
+    var last = 0 //last记录上次计算的结果，第一次记录的结果为0
+    for ; x != 0; x /= 10 { //每循环一次，x的个位数被取出
+        res = last*10 + x%10
+        //判断是否溢出
+        if res > maxValue || res < minValue {
+            return 0
+        }
+        last = res
+    }
+    return res
 }
 ```
 
@@ -131,8 +132,8 @@ func reverse(x int) int {
 ```go
 //定义链表Node
 type ListNode struct {
-	Val  int
-	Next *ListNode
+    Val  int
+    Next *ListNode
 }
 ```
 
@@ -148,33 +149,33 @@ type ListNode struct {
 
 ```go
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var v1, v2 int
-	//遍历链表，从L1和L2中取出数字,构成数字v1和v2
-	var p = l1
-	for i := 0; p != nil; p = p.Next {
-		v1 = p.Val*int(math.Pow10(i)) + v1
-		i++
-	}
-	p = l2
-	for i := 0; p != nil; p = p.Next {
-		v2 = p.Val*int(math.Pow10(i)) + v2
-		i++
-	}
-	var resList = &ListNode{0, nil}
-	var curr = resList
-	r := v1 + v2 //807 7=>0=>8
-	fmt.Println(v1, v2, r)
-	//将v1+v2的值从个位开始依次取出，存入到一个新的链表，构成结果链表
-	for r != 0 {
-		pop := int(r % 10)
-		r /= 10
-		curr.Val = pop
-		if r != 0 {
-			curr.Next = &ListNode{}
-			curr = curr.Next
-		}
-	}
-	return resList
+    var v1, v2 int
+    //遍历链表，从L1和L2中取出数字,构成数字v1和v2
+    var p = l1
+    for i := 0; p != nil; p = p.Next {
+        v1 = p.Val*int(math.Pow10(i)) + v1
+        i++
+    }
+    p = l2
+    for i := 0; p != nil; p = p.Next {
+        v2 = p.Val*int(math.Pow10(i)) + v2
+        i++
+    }
+    var resList = &ListNode{0, nil}
+    var curr = resList
+    r := v1 + v2 //807 7=>0=>8
+    fmt.Println(v1, v2, r)
+    //将v1+v2的值从个位开始依次取出，存入到一个新的链表，构成结果链表
+    for r != 0 {
+        pop := int(r % 10)
+        r /= 10
+        curr.Val = pop
+        if r != 0 {
+            curr.Next = &ListNode{}
+            curr = curr.Next
+        }
+    }
+    return resList
 }
 ```
 
@@ -214,42 +215,42 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 ```go
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var p, q = l1, l2
-	//存储进位1
-	var carry int
-	var dannyHead = &ListNode{}
-	curr := dannyHead
+    var p, q = l1, l2
+    //存储进位1
+    var carry int
+    var dannyHead = &ListNode{}
+    curr := dannyHead
     //开始遍历，当且仅当两个链表都为空时，结束循环
-	for p != nil || q != nil {
-		//分别取Node的值
-		var x, y int
-		if p != nil {
-			x = p.Val
-			p = p.Next
-		}
-		if q != nil {
-			y = q.Val
-			q = q.Next
-		}
+    for p != nil || q != nil {
+        //分别取Node的值
+        var x, y int
+        if p != nil {
+            x = p.Val
+            p = p.Next
+        }
+        if q != nil {
+            y = q.Val
+            q = q.Next
+        }
         //临时结果:两个链表中取出的值相加，再加上前一步的进位（carry=0相加也无妨）
-		val := x + y + carry
-		//使用完carry后，将carry清零
-		carry = 0
+        val := x + y + carry
+        //使用完carry后，将carry清零
+        carry = 0
         //如果当前计算结果>=10,说明重新产生了进位，当前应该保存的值是 val % 10
-		if val >= 10 {
-			val = val % 10
-			carry = 1
-		}
-		//将val保存到Result中
-		curr.Next = new(ListNode)
-		curr.Next.Val = val
-		curr = curr.Next
-	}
-	//最后如果有进位，则将1存入最后一位
-	if carry == 1 {
-		curr.Next = &ListNode{1, nil}
-	}
-	return dannyHead.Next
+        if val >= 10 {
+            val = val % 10
+            carry = 1
+        }
+        //将val保存到Result中
+        curr.Next = new(ListNode)
+        curr.Next.Val = val
+        curr = curr.Next
+    }
+    //最后如果有进位，则将1存入最后一位
+    if carry == 1 {
+        curr.Next = &ListNode{1, nil}
+    }
+    return dannyHead.Next
 }
 ```
 
@@ -317,10 +318,10 @@ $$
 
 ```go
 func numWays(n int) int {
-	if n <= 1 {
-		return 1
-	}
-	return numWays(n-1) % 100000007 + numWays(n-2) % 100000007
+    if n <= 1 {
+        return 1
+    }
+    return numWays(n-1) % 100000007 + numWays(n-2) % 100000007
 }
 ```
 
@@ -333,20 +334,20 @@ func numWays(n int) int {
 ```go
 func numWays(n int) int {
     if n < 2 {
-		return 1
-	}
-	//当n>2的情况
-	//stepOne:f(n-1)
-	//stepTwo:f(n-2)
-	stepOne, stepTwo := 1, 1
-	//记录第n种选择
-	stepN := 0
-	for i := 2; i <= n; i++ {
-		stepN = stepOne % 1000000007 + stepTwo % 1000000007 //f(n)=f(n-1) + f(n-2)
-		stepTwo = stepOne                                  //下一次循环的f(n-2) = 这一次的f(n-1)
-		stepOne = stepN                                    //下一次循环的f(n-1) = 这一次的f(n)
-	}
-	return stepN % 1000000007
+        return 1
+    }
+    //当n>2的情况
+    //stepOne:f(n-1)
+    //stepTwo:f(n-2)
+    stepOne, stepTwo := 1, 1
+    //记录第n种选择
+    stepN := 0
+    for i := 2; i <= n; i++ {
+        stepN = stepOne % 1000000007 + stepTwo % 1000000007 //f(n)=f(n-1) + f(n-2)
+        stepTwo = stepOne                                  //下一次循环的f(n-2) = 这一次的f(n-1)
+        stepOne = stepN                                    //下一次循环的f(n-1) = 这一次的f(n)
+    }
+    return stepN % 1000000007
 }
 
 ```
@@ -412,67 +413,67 @@ func numWays(n int) int {
 
 ```golang
 func solveSudoku(board [][]byte) {
-	var spaces [][2]int
-	var lines, columns [9][9]bool
-	var blocks [3][3][9]bool
-	for i, rows := range board {
-		for j, num := range rows {
-			//num:第 i 行 j列的数字
-			//如果是空白，记录下来
-			if num == '.' {
-				spaces = append(spaces, [2]int{i, j})
-			} else {
-				//由于数组下标是从0开始的，故而字符num对应在lines和columns中的是num-'1'
-				col := num - '1'
-				//不是空白，记录行、列、块
-				lines[i][col] = true         //第i行有num这个数字
-				columns[j][col] = true       //第j列有num这个数字
-				blocks[i/3][j/3][col] = true //记录块，由于每3行为块的1行，故除以3
-			}
-		}
-	}
-	//定义函数闭包，循环尝试将数字1-9填入spaces[idx]中
-	//判断数字n是否都不在行、列、块数组中有值
-	//    IF true 则将n填入该空格，并更新行、列、块的值，并递归调用spaces[idx + 1]
-	//          判断递归调用是否返回true
-	//              IF true 说明成功，返回true
-	//			IF false 说明idx+1没有数字可以填，回溯idx,尝试下一个数字
-	//    IF false 则进入下一次循环
-	//如果数字1-9都尝试过了，都无法写入，则返回false
-	var tryFill func(idx int) bool
-	tryFill = func(idx int) bool {
-		//执行到最后一个的下一个，直接返回true
-		if idx == len(spaces) {
-			return true
-		}
-		//遍历，从'1'到'9'
-		var n byte
-		for n = '1'; n <= '9'; n++ {
-			currLine := spaces[idx][0]   //当前空格行号
-			currColumn := spaces[idx][1] //当前空格列号
-			//如果lines、columns、blocks里面都没有数字 n 则将n填入到数独数组中
-			//lines中数字'1'对应的下标是0,也就是'1'-'1',依此类推，n对应 n - '1'
-			if !lines[currLine][n-'1'] && !columns[currColumn][n-'1'] && !blocks[currLine/3][currColumn/3][n-'1'] {
-				lines[currLine][n-'1'] = true
-				columns[currColumn][n-'1'] = true
-				blocks[currLine/3][currColumn/3][n-'1'] = true
-				board[currLine][currColumn] = n //填入
-				//当前填入之后，尝试填入下一个，如果下一个也成功，返回true
-				if tryFill(idx + 1) {
-					return true
-				}
-				//走到这里，说明下一步填入失败，那么将当前填入的信息删掉
-				//循环会继续填入当前继续尝试当前idx的下一个数字（回溯了）
-				lines[currLine][n-'1'] = false
-				columns[currColumn][n-'1'] = false
-				blocks[currLine/3][currColumn/3][n-'1'] = false
-			}
-		}
-		//如果所有 '1' - '9'个数字都尝试过了，都填入不了，则返回false
-		return false
-	}
-	//从space(0)开始填充
-	tryFill(0)
+    var spaces [][2]int
+    var lines, columns [9][9]bool
+    var blocks [3][3][9]bool
+    for i, rows := range board {
+        for j, num := range rows {
+            //num:第 i 行 j列的数字
+            //如果是空白，记录下来
+            if num == '.' {
+                spaces = append(spaces, [2]int{i, j})
+            } else {
+                //由于数组下标是从0开始的，故而字符num对应在lines和columns中的是num-'1'
+                col := num - '1'
+                //不是空白，记录行、列、块
+                lines[i][col] = true         //第i行有num这个数字
+                columns[j][col] = true       //第j列有num这个数字
+                blocks[i/3][j/3][col] = true //记录块，由于每3行为块的1行，故除以3
+            }
+        }
+    }
+    //定义函数闭包，循环尝试将数字1-9填入spaces[idx]中
+    //判断数字n是否都不在行、列、块数组中有值
+    //    IF true 则将n填入该空格，并更新行、列、块的值，并递归调用spaces[idx + 1]
+    //          判断递归调用是否返回true
+    //              IF true 说明成功，返回true
+    //            IF false 说明idx+1没有数字可以填，回溯idx,尝试下一个数字
+    //    IF false 则进入下一次循环
+    //如果数字1-9都尝试过了，都无法写入，则返回false
+    var tryFill func(idx int) bool
+    tryFill = func(idx int) bool {
+        //执行到最后一个的下一个，直接返回true
+        if idx == len(spaces) {
+            return true
+        }
+        //遍历，从'1'到'9'
+        var n byte
+        for n = '1'; n <= '9'; n++ {
+            currLine := spaces[idx][0]   //当前空格行号
+            currColumn := spaces[idx][1] //当前空格列号
+            //如果lines、columns、blocks里面都没有数字 n 则将n填入到数独数组中
+            //lines中数字'1'对应的下标是0,也就是'1'-'1',依此类推，n对应 n - '1'
+            if !lines[currLine][n-'1'] && !columns[currColumn][n-'1'] && !blocks[currLine/3][currColumn/3][n-'1'] {
+                lines[currLine][n-'1'] = true
+                columns[currColumn][n-'1'] = true
+                blocks[currLine/3][currColumn/3][n-'1'] = true
+                board[currLine][currColumn] = n //填入
+                //当前填入之后，尝试填入下一个，如果下一个也成功，返回true
+                if tryFill(idx + 1) {
+                    return true
+                }
+                //走到这里，说明下一步填入失败，那么将当前填入的信息删掉
+                //循环会继续填入当前继续尝试当前idx的下一个数字（回溯了）
+                lines[currLine][n-'1'] = false
+                columns[currColumn][n-'1'] = false
+                blocks[currLine/3][currColumn/3][n-'1'] = false
+            }
+        }
+        //如果所有 '1' - '9'个数字都尝试过了，都填入不了，则返回false
+        return false
+    }
+    //从space(0)开始填充
+    tryFill(0)
 }
 ```
 
@@ -529,26 +530,26 @@ func solveSudoku(board [][]byte) {
  */
 func buildTree(inorder []int, postorder []int) *TreeNode {
     li, lp := len(inorder), len(postorder)
-	if li == 0 {
-		return nil
-	}
-	if li == 1 {
-		return &TreeNode{Val: inorder[0]}
-	}
-	//根节点
-	root := &TreeNode{Val: postorder[lp-1]}
-	//找到root节点在inorder中的位置
-	idx := 0
-	for i := 0; i < li; i++ {
-		if inorder[i] == root.Val {
-			idx = i
-			break
-		}
-	}
-	//左右子树的后续遍历序列切割位置 idxP
-	idxP := len(inorder[:idx])
-	root.Left = buildTree(inorder[:idx], postorder[:idxP])
-	root.Right = buildTree(inorder[idx+1:], postorder[idxP:lp-1])
+    if li == 0 {
+        return nil
+    }
+    if li == 1 {
+        return &TreeNode{Val: inorder[0]}
+    }
+    //根节点
+    root := &TreeNode{Val: postorder[lp-1]}
+    //找到root节点在inorder中的位置
+    idx := 0
+    for i := 0; i < li; i++ {
+        if inorder[i] == root.Val {
+            idx = i
+            break
+        }
+    }
+    //左右子树的后续遍历序列切割位置 idxP
+    idxP := len(inorder[:idx])
+    root.Left = buildTree(inorder[:idx], postorder[:idxP])
+    root.Right = buildTree(inorder[idx+1:], postorder[idxP:lp-1])
     return root
 }
 ```
