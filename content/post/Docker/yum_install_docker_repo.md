@@ -39,3 +39,4 @@ sudo yum-config-manager \
 sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
+ps:如安装失败[请戳这里](/post/docker/install-docker-error/)
