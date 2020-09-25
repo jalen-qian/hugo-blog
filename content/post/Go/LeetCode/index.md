@@ -1,7 +1,7 @@
 ---
 title: "用Go语言刷LeetCode"
 date: 2020-09-15
-lastmod: 2020-09-15
+lastmod: 2020-09-19
 draft: false
 tags: ["Go","LeetCode"]
 categories: ["Go"]
@@ -478,6 +478,79 @@ func solveSudoku(board [][]byte) {
 
 
 
+## 6.从中序与后序遍历序列构造二叉树
 
+[LeetCode链接][https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/submissions/]
+
+### 题目描述
+
+根据一棵树的中序遍历与后序遍历构造二叉树。
+
+**注意:**
+你可以假设树中没有重复的元素。
+
+例如，给出
+
+```
+中序遍历 inorder = [9,3,15,20,7]
+后序遍历 postorder = [9,15,7,20,3]
+```
+
+返回如下的二叉树：
+
+```
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
+
+### 解题思路
+
+由二叉树中序遍历和后序遍历的过程可知：
+1. 后续列表的最后一个元素，是当前树的根节点；
+2. 找到根节点在中序列表中的位置`idx`，那么`idx`左边的子列表，表示左子树,即：`inorder[:idx]`；`idx`右边的子列表，表示右子树，即：`inorder[idx + 1:]`
+3. 这样我们得到了左右子树的中序遍历，那么左右子树的后续遍历如何找呢？
+4. 由于后续遍历最后一个元素左边的所有序列都是子树的序列，且顺序为**`[左子树 右子树 根节点]`**，我们可以根据**左子树中序遍历**的长度来确定**左子树后续遍历**的切割位置`idxP = len(inorder[:idx])`
+5. 那么就有，`左子树后续遍历 = postorder[:idxP]`，这样，`右子树后续遍历 = postorder[idxP:lp - 1]` lp表示postorder的长度，这里-1是因为要去掉当前的根节点
+6. 最后，我们根据生成的子序列递归地生成左、右子树即可。
+
+### 代码
+
+```golang
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func buildTree(inorder []int, postorder []int) *TreeNode {
+    li, lp := len(inorder), len(postorder)
+	if li == 0 {
+		return nil
+	}
+	if li == 1 {
+		return &TreeNode{Val: inorder[0]}
+	}
+	//根节点
+	root := &TreeNode{Val: postorder[lp-1]}
+	//找到root节点在inorder中的位置
+	idx := 0
+	for i := 0; i < li; i++ {
+		if inorder[i] == root.Val {
+			idx = i
+			break
+		}
+	}
+	//左右子树的后续遍历序列切割位置 idxP
+	idxP := len(inorder[:idx])
+	root.Left = buildTree(inorder[:idx], postorder[:idxP])
+	root.Right = buildTree(inorder[idx+1:], postorder[idxP:lp-1])
+    return root
+}
+```
 
 ...持续更新中
