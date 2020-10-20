@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Jalen Qian" /><meta name="description" content="个人技术分享与学习总结，专注于Go、PHP、Java等领域" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Jalen Qian" /><meta name="description" content="个人技术分享与学习总结，专注于Go、PHP、Java等领域" /><meta name="keywords" content="Go, 后端技术, 学习分享" />
 
 
 
@@ -35,7 +35,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
@@ -45,7 +45,7 @@
 <meta property="og:description" content="个人技术分享与学习总结，专注于Go、PHP、Java等领域" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/post/" />
-<meta property="og:updated_time" content="2020-10-20T01:37:56+08:00" />
+<meta property="og:updated_time" content="2020-10-20T17:17:28+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="个人技术分享与学习总结，专注于Go、PHP、Java等领域">
 <meta name="twitter:card" content="summary"/>
@@ -119,12 +119,23 @@
 <section id="archive" class="archive">
     <div class="archive-title">
       <span class="archive-post-counter">
-        共计 14 篇文章
+        共计 17 篇文章
       </span>
     </div>
       <div class="collection-title">
         <h2 class="archive-year">2020</h2>
       </div>
+
+    <div class="archive-post">
+      <span class="archive-post-time">
+        10-20
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/go/go_menu/" class="archive-post-link">
+          [置顶]Go语言学习之路 🔝
+        </a>
+      </span>
+    </div>
 
     <div class="archive-post">
       <span class="archive-post-time">
@@ -208,8 +219,8 @@
         09-15
       </span>
       <span class="archive-post-title">
-        <a href="/post/go/leetcode/" class="archive-post-link">
-          用Go语言刷LeetCode
+        <a href="/post/goland/version-of-delve-too-old/" class="archive-post-link">
+          GoLand Debug出现Version Of Delve is too old for...
         </a>
       </span>
     </div>
@@ -219,8 +230,41 @@
         09-15
       </span>
       <span class="archive-post-title">
-        <a href="/post/goland/version-of-delve-too-old/" class="archive-post-link">
-          GoLand Debug出现Version Of Delve is too old for...
+        <a href="/post/go/leetcode/" class="archive-post-link">
+          用Go语言刷LeetCode
+        </a>
+      </span>
+    </div>
+
+    <div class="archive-post">
+      <span class="archive-post-time">
+        09-11
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/go/basic_04/" class="archive-post-link">
+          Go语言基础之流程控制
+        </a>
+      </span>
+    </div>
+
+    <div class="archive-post">
+      <span class="archive-post-time">
+        09-10
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/go/basic_05_array/" class="archive-post-link">
+          Go语言基础之数组
+        </a>
+      </span>
+    </div>
+
+    <div class="archive-post">
+      <span class="archive-post-time">
+        09-10
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/go/basic_01/" class="archive-post-link">
+          Go语言基础之变量与常量
         </a>
       </span>
     </div>
@@ -241,8 +285,8 @@
         09-10
       </span>
       <span class="archive-post-title">
-        <a href="/post/go/datatype/" class="archive-post-link">
-          Go语言的数据类型
+        <a href="/post/go/basic_02_operators/" class="archive-post-link">
+          Go语言基础之运算符
         </a>
       </span>
     </div>
@@ -252,8 +296,8 @@
         09-10
       </span>
       <span class="archive-post-title">
-        <a href="/post/go/operators/" class="archive-post-link">
-          Go语言基础之运算符
+        <a href="/post/go/basic_03_datatype/" class="archive-post-link">
+          Go语言基础之数据类型
         </a>
       </span>
     </div>
@@ -265,17 +309,6 @@
       <span class="archive-post-title">
         <a href="/post/hugo/hugo-create-site/" class="archive-post-link">
           [Hugo] 使用Hugo&#43;nginx搭建个人博客网站
-        </a>
-      </span>
-    </div>
-
-    <div class="archive-post">
-      <span class="archive-post-time">
-        07-12
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go/04_basic/" class="archive-post-link">
-          Go语言基础之流程控制
         </a>
       </span>
     </div></section>
@@ -300,7 +333,11 @@
 <div class="copyright">
   
 
-  
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
 
   <span class="copyright-year">
 	Copyright

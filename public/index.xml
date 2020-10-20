@@ -6,10 +6,28 @@
     <description>Recent content on Jalen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 20 Oct 2020 01:37:56 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2020 16:36:34 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[置顶]Go语言学习之路 🔝</title>
+      <link>http://localhost:1313/post/go/go_menu/</link>
+      <pubDate>Tue, 20 Oct 2020 16:36:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/go_menu/</guid>
+      <description>Go语言基础 Go语言基础之变量与常量 Go语言基础之运算符 Go语言基础之基本数据类型 Go语言基础之流程控制 Go语言基础之数组</description>
+    </item>
+    
+    <item>
+      <title>用Go语言刷LeetCode</title>
+      <link>http://localhost:1313/post/go/leetcode/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go/leetcode/</guid>
+      <description>这篇文章记录了本人通过Go语言来刷LeetCode，个人能力有限，解法不能保证是最优解，希望能抛转引玉 数据结构与算法题 1.两数之和 LeetC</description>
+    </item>
     
     <item>
       <title>关于</title>
@@ -93,12 +111,30 @@
     </item>
     
     <item>
-      <title>用Go语言刷LeetCode</title>
-      <link>http://localhost:1313/post/go/leetcode/</link>
-      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      <title>Go语言基础之流程控制</title>
+      <link>http://localhost:1313/post/go/basic_04/</link>
+      <pubDate>Fri, 11 Sep 2020 08:37:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go/leetcode/</guid>
-      <description>这篇文章记录了本人通过Go语言来刷LeetCode，个人能力有限，解法不能保证是最优解，希望能抛转引玉 数据结构与算法题 1.两数之和 LeetC</description>
+      <guid>http://localhost:1313/post/go/basic_04/</guid>
+      <description>流程控制是每种编程语言控制逻辑走向和执行次序的重要部分，流程控制可以说是一门语言的“经脉”。 Go语言中最常用的流程控制有if和for，而sw</description>
+    </item>
+    
+    <item>
+      <title>Go语言基础之数组</title>
+      <link>http://localhost:1313/post/go/basic_05_array/</link>
+      <pubDate>Thu, 10 Sep 2020 17:17:28 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/basic_05_array/</guid>
+      <description>本文主要介绍Go语言中数组（array）及它的基本使用。 Array(数组) 数组是同一种数据类型元素的集合。 在Go语言中，数组从声明时就确定，</description>
+    </item>
+    
+    <item>
+      <title>Go语言基础之变量与常量</title>
+      <link>http://localhost:1313/post/go/basic_01/</link>
+      <pubDate>Thu, 10 Sep 2020 16:47:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/basic_01/</guid>
+      <description>参考文章 标识符与关键字 标识符 标识符就是程序员自己定义的特殊意义的词，比如变量名、常量名、函数名等，GO语言中只能用字母、数字和_来组成，并且</description>
     </item>
     
     <item>
@@ -111,21 +147,21 @@
     </item>
     
     <item>
-      <title>Go语言基础之运算符</title>
-      <link>http://localhost:1313/post/go/operators/</link>
+      <title>Go语言基础之数据类型</title>
+      <link>http://localhost:1313/post/go/basic_03_datatype/</link>
       <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go/operators/</guid>
-      <description>运算符用于在程序运行时执行数学或逻辑运算。 运算符 Go 语言内置的运算符有： 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 算数运算符 算术运算符 运</description>
+      <guid>http://localhost:1313/post/go/basic_03_datatype/</guid>
+      <description>参考文章 Go语言包含丰富的数据类型，除了基本的整型、浮点型、字符串、布尔型外，还有数组、切片(slice)、函数、Map、结构体、通道(Ch</description>
     </item>
     
     <item>
-      <title>Go语言的数据类型</title>
-      <link>http://localhost:1313/post/go/datatype/</link>
+      <title>Go语言基础之运算符</title>
+      <link>http://localhost:1313/post/go/basic_02_operators/</link>
       <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go/datatype/</guid>
-      <description>参考博客：https://www.liwenzhou.com/posts/Go/02_datatype/ Go语言包含丰富的数据类型，除了基本</description>
+      <guid>http://localhost:1313/post/go/basic_02_operators/</guid>
+      <description>运算符用于在程序运行时执行数学或逻辑运算。 运算符 Go 语言内置的运算符有： 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 算数运算符 算术运算符 运</description>
     </item>
     
     <item>
@@ -135,15 +171,6 @@
       
       <guid>http://localhost:1313/post/hugo/hugo-command/</guid>
       <description>hugo是基于命令行的静态网站生成工具, 掌握基本的命令是很有必要的. 常用命令列表 通过hugo help命令可以获取hugo命令行的帮助文档. 下</description>
-    </item>
-    
-    <item>
-      <title>Go语言基础之流程控制</title>
-      <link>http://localhost:1313/post/go/04_basic/</link>
-      <pubDate>Sun, 12 Jul 2020 08:37:56 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/go/04_basic/</guid>
-      <description>流程控制是每种编程语言控制逻辑走向和执行次序的重要部分，流程控制可以说是一门语言的“经脉”。 Go语言中最常用的流程控制有if和for，而sw</description>
     </item>
     
   </channel>

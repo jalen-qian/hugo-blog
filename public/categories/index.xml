@@ -57,20 +57,20 @@
     </item>
     
     <item>
-      <title>Go</title>
-      <link>http://localhost:1313/categories/go/</link>
-      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/categories/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>GoLand</title>
       <link>http://localhost:1313/categories/goland/</link>
       <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/categories/goland/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>http://localhost:1313/categories/go/</link>
+      <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/go/</guid>
       <description></description>
     </item>
     
