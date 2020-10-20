@@ -3,12 +3,10 @@ title: "Go语言基础之运算符"
 date: 2020-09-10T08:37:56+08:00
 lastmod: 2020-09-10T01:37:56+08:00
 draft: false
-tags: ["Go"]
-categories: ["Go"]
-author: "jalen"
+tags: ["Golang"]
+categories: ["Golang"]
+author: "钱文军"
 ---
-
-
 
 运算符用于在程序运行时执行数学或逻辑运算。
 
