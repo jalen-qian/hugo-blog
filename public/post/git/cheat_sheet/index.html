@@ -49,7 +49,7 @@
 <meta itemprop="description" content="转载自 阮一峰的博客 我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个">
 <meta itemprop="datePublished" content="2020-09-25T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2338">
+<meta itemprop="wordCount" content="2483">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/git/"> Git </a>
             </div>
-          <span class="more-meta"> 约 2338 字 </span>
+          <span class="more-meta"> 约 2483 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -153,7 +153,11 @@
         <li><a href="#七查看信息">七、查看信息</a></li>
         <li><a href="#八远程同步">八、远程同步</a></li>
         <li><a href="#九撤销">九、撤销</a></li>
-        <li><a href="#十其他">十、其他</a></li>
+        <li><a href="#十其他">十、其他</a>
+          <ul>
+            <li><a href="#git强制覆盖本地代码为远端仓库代码">Git强制覆盖本地代码为远端仓库代码：</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -723,7 +727,32 @@ $ git stash pop
 $ git archive
 </code></pre></td></tr></table>
 </div>
-</div><p>（完）</p>
+</div><h3 id="git强制覆盖本地代码为远端仓库代码">Git强制覆盖本地代码为远端仓库代码：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    git fetch --all
+    git reset --hard origin/master
+    git pull
+</code></pre></td></tr></table>
+</div>
+</div><p>git强制覆盖本地命令（单条执行）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">     git fetch --all &amp;&amp;  git reset --hard origin/master &amp;&amp; git pull
+</code></pre></td></tr></table>
+</div>
+</div><p>第一个是：拉取所有更新，不同步；
+第二个是：本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)；
+第三个是：再更新一次（其实也可以不用，第二步命令做过了其实）</p>
+<p>（完）</p>
 
     </div>
 
@@ -801,39 +830,39 @@ $ git archive
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:jalen_qian@163.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/jalen-qian" class="iconfont icon-github" title="github"></a>
-  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+            <a href="mailto:jalen_qian@163.com" class="iconfont icon-email" title="email"></a>
+            <a href="https://github.com/jalen-qian" class="iconfont icon-github" title="github"></a>
+    <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
-  
 
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
-  </div>
 
-  <span class="copyright-year">
+    <div class="busuanzi-footer">
+            <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+                <span class="division">|</span>
+            <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+        </div>
+
+    <span class="copyright-year">
 	Copyright
     &copy; 
     2020
     
-    
-    
+        
+        
 	❤️
     <span class="author">Jalen Qian</span>
-	<span>琼ICP备17001848号-1</span>
+	<span><a style="color:#8a8a8a;" href="http://beian.miit.gov.cn/">粤ICP备2020106088号</a></span>
  </span>
- <span class="power-by">
+    <span class="power-by">
     
     Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
-  <span class="division">|</span>
-  <span class="theme-info">
+    <span class="division">|</span>
+    <span class="theme-info">
     
-    
+        
     Theme -  <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
  </span>
 </div>

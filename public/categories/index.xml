@@ -66,15 +66,6 @@
     </item>
     
     <item>
-      <title>Go</title>
-      <link>http://localhost:1313/categories/go/</link>
-      <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>hugo</title>
       <link>http://localhost:1313/categories/hugo/</link>
       <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>

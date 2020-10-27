@@ -65,5 +65,14 @@
       <description>参考文章 Go语言包含丰富的数据类型，除了基本的整型、浮点型、字符串、布尔型外，还有数组、切片(slice)、函数、Map、结构体、通道(Ch</description>
     </item>
     
+    <item>
+      <title>Go语言基础之运算符</title>
+      <link>http://localhost:1313/post/go/basic_02_operators/</link>
+      <pubDate>Thu, 10 Sep 2020 08:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go/basic_02_operators/</guid>
+      <description>运算符用于在程序运行时执行数学或逻辑运算。 运算符 Go 语言内置的运算符有： 算术运算符 关系运算符 逻辑运算符 位运算符 赋值运算符 算数运算符 算术运算符 运</description>
+    </item>
+    
   </channel>
 </rss>
