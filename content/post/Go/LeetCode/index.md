@@ -15,7 +15,7 @@ author: "Jalen"
 
 # 数据结构与算法题
 
-## 1.两数之和
+## 1.第1题：两数之和
 
 [LeetCode链接](https://leetcode-cn.com/problems/two-sum/)
 
@@ -50,7 +50,7 @@ func twoSum(nums []int, target int) []int {
 }
 ```
 
-## 2.整数反转
+## 2.第7题：整数反转
 
 [LeetCode链接](https://leetcode-cn.com/problems/reverse-integer/)
 
@@ -109,7 +109,9 @@ func reverse(x int) int {
 }
 ```
 
-## 3.两数相加
+## 3.第2题：两数相加
+
+[Leetcode链接](https://leetcode-cn.com/problems/add-two-numbers/)
 
 ### 题目描述
 
@@ -254,7 +256,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
-## 4.青蛙跳台阶问题
+## 4.剑指 Offer 10- II. 青蛙跳台阶问题
 
 [LeetCode链接](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
 
@@ -354,7 +356,7 @@ func numWays(n int) int {
 
 这种方法的时间复杂度是$O(n)$，空间复杂度是$O(1)$
 
-## 5.解数独问题
+## 5.第37题：解数独问题
 
 [LeetCode链接](https://leetcode-cn.com/problems/sudoku-solver/)
 
@@ -479,7 +481,7 @@ func solveSudoku(board [][]byte) {
 
 
 
-## 6.从中序与后序遍历序列构造二叉树
+## 6.第106题：从中序与后序遍历序列构造二叉树
 
 [LeetCode链接](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/submissions/)
 
@@ -553,5 +555,170 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
     return root
 }
 ```
+
+## 7.第144题：二叉树的前序遍历
+
+[LeetCode链接](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+
+给定一个二叉树，返回它的`前序遍历`
+
+**示例**
+
+```
+输入：[1,null,2,3]
+     1
+      \
+       2
+      /
+     3
+输出：[1,2,3]
+```
+
+### 解法1：递归，比较简单
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func preorderTraversal(root *TreeNode) []int {
+    //解法一：递归
+    res := make([]int,0)
+    if root == nil {
+        return res
+    } else {
+        res = append(res, root.Val)
+        res = append(res, preorderTraversal(root.Left)...)
+        res = append(res, preorderTraversal(root.Right)...)
+    }
+    return res
+}
+```
+
+解法二：迭代法
+
+> 由于递归是通过一个维护一个隐式的栈，我们这里将这个栈显示创建出来。原理基本上和递归相同。代码如下：
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func preorderTraversal(root *TreeNode) []int {
+    //解法2：迭代
+    res := make([]int,0)
+    if root == nil{
+        return res
+    }
+    stack := make([]*TreeNode,1)
+    stack[0] = root
+    for len(stack) > 0{
+        node := stack[len(stack) - 1]
+        stack = stack[:len(stack) - 1]
+        res = append(res, node.Val)
+        if node.Right != nil{
+            stack = append(stack, node.Right)
+        }
+        if node.Left != nil{
+            stack = append(stack, node.Left)
+        }
+    }
+    return res
+}
+```
+
+## 8.第3题：无重复字符的最长子串 难度：中等
+
+[LeetCode链接](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/submissions/)
+
+### 题目描述：
+
+给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+
+示例 1:
+
+```
+输入: "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+```
+示例 2:
+```
+输入: "bbbbb"
+输出: 1
+解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+```
+
+
+示例3
+```
+输入: "pwwkew"
+输出: 3
+解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+```
+### 解题思路：滑动窗口
+
+为了方便描述，我们将括号内的字母表示滑动窗口内的字母，滑动窗口必须满足：
+
+- 窗口内的字母不能有重复的
+- 窗口内的字母是连续的
+- 当出现重复字母时，**将窗口挪移到重复字母对应的那个字符的下一个**
+- 滑动窗口的长度是当前不重复子序列的长度，我们每操作一次，就可以记录一次最大值
+- 最终窗口移动到字符串最右边，就能得到最终的结果
+
+我们以`"abcabcbb"`为例，具体步骤如下：
+
+1. `(a)bcabcbb ` 开始将第一个字符放入，窗口长度1，maxLength = 1
+2. `(ab)cabcbb ` b不在窗口中，继续放入窗口，窗口长度2 ，maxLength = 2
+3. `(abc)abcbb ` c不在窗口中，继续放入窗口，窗口长度3 ，maxLength = 3
+4. `a(bca)bcbb `  a已经在窗口中了，而且a的索引位置是0，所以将窗口左边界移动到`0+1 = 1`的位置，并将新的`a` 继续放入窗口，窗口长度3 ，maxLength = 3
+5. `ab(cab)cbb `  b已经在窗口中了，而且b的索引位置是1，所以将窗口左边界移动到`1 + 1 = 2`的位置，并将新的`b` 继续放入窗口，窗口长度3 ，maxLength = 3
+6. `abc(abc)bb `  c已经在窗口中了，而且c的索引位置是2，所以将窗口左边界移动到`2 + 1 = 3`的位置，并将新的`c` 继续放入窗口，窗口长度3 ，maxLength = 3
+7. `abcab(cb)b `  b已经在窗口中了，而且b的索引位置是4，所以将窗口左边界移动到`4 + 1 = 5`的位置，并将新的`b` 继续放入窗口，窗口长度2，maxLength = 3
+8. `abcabcb(b) `  b已经在窗口中了，而且b的索引位置是6，所以将窗口左边界移动到`6 + 1 = 7`的位置，并将新的`b` 继续放入窗口，窗口长度1，maxLength = 3，此时窗口已经滑动到最右边，记录得到最长不重复子串的长度是`3`
+
+### 代码如下
+
+```
+func lengthOfLongestSubstring(s string) int {
+    if len(s) == 0{
+        return 0
+    }
+    maxLen := 0
+    list := make([]rune,0,1)
+    for _,r := range s{
+        inList := false
+        lIdx := 0
+        for j,v := range list{
+            if v == r{
+                inList = true
+                lIdx = j
+                break
+            }
+        }
+        list = append(list, r)
+        if !inList{
+            if len(list) > maxLen{
+                maxLen = len(list)
+            }
+        } else {
+            //将list从索引位置截取
+            list = list[lIdx + 1 :]
+        }
+    }
+    return maxLen
+}
+```
+
+
 
 ...持续更新中
