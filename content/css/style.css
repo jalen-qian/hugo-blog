@@ -19,6 +19,16 @@
 .post-content h3,.post-content h2{
     margin: 1.4em 0 1.1em;
 }
+
+.post .post-content .highlight>.chroma .c {
+    font-style: normal;
+}
+.post .post-content .highlight>.chroma .c1 {
+    font-style: normal;
+}
+.post .post-content .highlight>.chroma .cm {
+    font-style: normal;
+}
 /*.post-content pre, .comment-content pre {
     padding: 1em 1.5em;
 }
