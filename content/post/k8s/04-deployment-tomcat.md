@@ -1,5 +1,5 @@
 ---
-title: "K8S笔记6 利用Deployment部署Tomcat集群"
+title: "K8S笔记4 利用Deployment部署Tomcat集群"
 date: 2021-01-15T09:47:00+08:00
 lastmod: 2021-01-15T09:47:00+08:00
 draft: false
