@@ -17,6 +17,7 @@ author: "钱文军"
   ```shell
   # 查看所有的node节点
   kubectl get nodes
+  
   # 查看node详细信息
   kubectl describe node名称
   ```
@@ -47,8 +48,10 @@ author: "钱文军"
   # 查看已经创建的服务
   kubectl get service
   kubectl get svc
+  
   # 删除服务
   kubectl delete service service名称
+  
   # 查看服务详细信息
   kubectl describe service service名称
   
@@ -76,6 +79,7 @@ author: "钱文军"
   ```shell
   # nfs文件共享时，查看文件共享是否创建成功
   exportfs
+  
   # 在子node所在宿主机中，查看主节点的nfs文件共享能否访问
   showmount -e 192.168.233.128
   
