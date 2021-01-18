@@ -111,7 +111,7 @@ kubectl delete deployment 部署名称
 - 部署 tomcat 集群
 
   ```shell
-  [root@master tomcat-deploy]# kubectl create -f tomcat-deploy.yml
+  $ kubectl create -f tomcat-deploy.yml
   deployment.extensions/tomcat-deploy created
   ```
 
@@ -129,7 +129,7 @@ kubectl delete deployment 部署名称
 - 至此，tomcat集群已经部署完毕，我们可以通过`kubectl describe pod [pod名称]`命令查看pod部署的详细信息
 
   ```shell
-  [root@master tomcat-deploy]# kubectl describe pod tomcat-deploy-5fd4fc7ddb-7vw4f
+  $ kubectl describe pod tomcat-deploy-5fd4fc7ddb-7vw4f
   Name:               tomcat-deploy-5fd4fc7ddb-7vw4f
   Namespace:          default
   Priority:           0
@@ -183,9 +183,10 @@ kubectl delete deployment 部署名称
 
 # 从外部访问Tomcat集群（NodePort)方式
 
-上面我们部署了`tomcat`集群，但是这个集群只能在集群内部访问，如何将`tomcat`暴露给外部使用呢？回顾我们的`Deployment`部署脚本
+上面我们部署了`tomcat`集群，但是这个集群只能在集群内部访问，如何将`tomcat`暴露给外部使用呢？回顾我们的`Deployment`部署脚本，有如下两行：
 
 ```
+# tomcat-deploy.yml文件
 ports:
         - containerPort: 8080
 ```
@@ -225,7 +226,7 @@ ports:
 - 部署服务
 
   ```shell
-  [root@master tomcat-service]# kubectl create -f tomcat-service.yml
+  $ kubectl create -f tomcat-service.yml
   service/tomcat-service created
   ```
   这里提示我们服务已经创建了
@@ -233,7 +234,7 @@ ports:
 - 查看服务详情
 
   ```shell
-  [root@master tomcat-service]# kubectl get service
+  $ kubectl get service
   NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
   kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          18h
   tomcat-service   NodePort    10.107.253.196   <none>        8000:32500/TCP  /+++++ 2m3s
