@@ -12,6 +12,15 @@ author: "钱文军"
 
  经过前几篇的学习，基本入门了Kubernetes，下面我将一些基本的Kubernetes命令总结一下
 
+- 集群相关
+
+  ```shell
+  # 查看集群信息
+  $ kubectl cluster-info
+  Kubernetes master is running at https://192.168.233.128:6443
+  KubeDNS is running at https://192.168.233.128:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+  ```
+
 - node相关
 
   ```shell
@@ -22,7 +31,7 @@ author: "钱文军"
   kubectl describe node名称
   ```
 
-- 部署相关
+- deployment 相关
 
   ```shell
   # 创建部署
@@ -39,9 +48,18 @@ author: "钱文军"
   
   # 查看部署详细信息
   kubectl describe deployment 部署名称
+  
+  # 滚动升级，将部署副本数滚动增加，比如这里将副本数增加为8个
+  kubectl scale --replicas=8 deployment/deployment名称
+  
+  # 直接编辑deployment，更新manifest，编写方式是vim
+  kubectl edit deployment/deployment名称
+  
+  # 重启部署
+  kubectl rollout restart deploy 部署名称 [-n namespace名称]
   ```
 
-- service相关
+- service 相关
   
   ```shell
   # 创建服务 & 更新服务部署配置，与部署一样
@@ -91,5 +109,4 @@ author: "钱文军"
   192.168.233.128:/usr/local/data/www-data /mnt nfs defaults 0 0
   ```
 
-  
 
